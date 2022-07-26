@@ -1,0 +1,104 @@
+<html>
+<body>
+<form name="f1" method="post" class="container">
+Name:<input name="name" size=20 class="input"><br><br>
+Address:<input name="address" size=20 class="input"><br><br>
+Phone:<input name="mobile" size=20 class="input"><br><br>
+<br><br>
+Select class:
+<select name="class" class="select">
+<option value="economy">Economy Class</option>
+<option selected value="business">Business Class</option>
+</select>
+<br><br>
+No. of trips:
+<input type=checkbox name="st" class="check">Single trip
+<input type=checkbox name="rt" class="check">Round trip
+<br><br>
+Travel code<br>
+<select name="code" class="select">
+<option value="d2t">DelTha3D4N</option>
+<option value="d2ny">DelNYC5D6N</option>
+<option value="d2p">DelPar8D7N</option>
+<option value="d2a">DelAus10D9N</option>
+</select>
+<br><br>
+No. of travellers:
+<input type=radio name="r1" class="radio">1
+<input type=radio name="r1" class="radio">2
+<input type=radio name="r1" class="radio">3
+<input type=radio name="r1" class="radio">4
+<input type=radio name="r1" class="radio">5
+<br><br>
+<input type=submit value="Book Now" onclick="book()"> <input type=button value="Reset">
+</form>
+</body>
+<script>
+function book()
+{
+var res=0;
+n1=document.f1.name.value;
+if(document.f1.class.value=="economy")
+{
+res=res+"Economy class"
+}
+if(document.f1.class.value=="business")
+{
+res=res+"Business class"
+}
+
+res=n1+",a(n)"+" "+res+" "+"ticket has been booked,"
+if(document.f1.st.checked)
+{
+res=res+" single trip"
+}
+if(document.f1.rt.checked)
+{
+res=res+" round trip"
+}
+res=res+" "+"from"
+
+if(document.f1.code.value=="d2t")
+{
+res=res+" New Delhi to Thailand."
+}
+if(document.f1.code.value=="d2ny")
+{
+res=res+" New Delhi to New York City."
+}
+if(document.f1.code.value=="d2p")
+{
+res=res+" New Delhi to Paris."
+}
+if(document.f1.code.value=="d2a")
+{
+res=res+" New Delhi to Australia."
+}
+
+res=res+" "+"Total traveller(s),"
+if(document.f1.r1[0].checked)
+{
+res=res+"1."
+}
+if(document.f1.r1[1].checked)
+{
+res=res+"2."
+}
+if(document.f1.r1[2].checked)
+{
+res=res+"3."
+}
+if(document.f1.r1[3].checked)
+{
+res=res+"4."
+}
+if(document.f1.r1[4].checked)
+{
+res=res+"5."
+}
+
+res=res+" "+"Your address and phone number, "+document.f1.address.value+" "+document.f1.mobile.value
+alert(res)
+}
+</script>
+</html>
